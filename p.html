@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Integration Quality Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Live Data Quality Monitoring</h1>
+    <canvas id="qualityChart" width="400" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('qualityChart').getContext('2d');
+        var qualityChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['10 AM', '11 AM', '12 PM', '1 PM', '2 PM'],
+                datasets: [{
+                    label: 'Data Quality Score (%)',
+                    data: [75, 80, 85, 90, 95],
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    borderColor: 'rgba(40, 167, 69, 1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Real-Time Data Quality Trends'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
